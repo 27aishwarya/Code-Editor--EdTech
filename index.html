@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+   <div class="container">
+   <div class="inputs">
+    <div class="html">
+        <h5>HTML CODE</h5>
+        <textarea onkeyup="outPut()"  id="html input-section" ></textarea>
+    </div>
+    <div class="css">
+        <h5> CSS CODE</h5>
+        <textarea  onkeyup="outPut()"  id="css input-section" ></textarea>
+    </div>
+    <div class="javascript">
+        <h5> Javascript CODE</h5>
+        <textarea onkeyup="outPut()"   id="javascript input-section" ></textarea>
+    </div>
+   </div>
+   <div class="output">
+    <div class="iframe ">
+        <h5>Output : </h5>
+        <iframe  id="output"></iframe>
+    </div>
+   </div>
+   </div>
+   <script>
+    function outPut() {
+        var html = document.getElementById('html')
+        var css = document.getElementById('css')
+        var javascript = document.getElementById('javascript')
+        var iframe = document.getElementById('output')
+        iframe.contentDocument.body.innerHTML = html.value + '<style>' + css.value + '</>'
+        iframe.contentWindow.eval(javascript.value)
+
+    }
+   </script>
+</body>
+</html>
